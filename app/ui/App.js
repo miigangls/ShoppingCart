@@ -1,36 +1,32 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {Text} from 'react-native';
 
+import { Container, Content } from 'native-base';
 
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import rootReducer from '../reducers'
 
+import rootReducer from '../reducers'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic" >
-          <Provider store={store}>
-            <Text>Hola Mundd</Text>
-          </Provider>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Container>
+          <Content>
+            <Text>Hola mundo</Text>
+          </Content>
+        </Container>
+      </Provider>
+    )
+  }
+}
 
 
 export default App;
