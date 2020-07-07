@@ -1,11 +1,15 @@
 import React from 'react';
 import {Text} from 'react-native';
+import { Container, Content } from 'native-base';
+import Header from '../components/header'
 
 export default class Main extends React.Component  {
   state = {loading: true }
   constructor(props) {
     super()
-    this.router = {}
+    this.router = {
+
+    }
   }
   
   render() {
@@ -19,8 +23,12 @@ export default class Main extends React.Component  {
     return this.getHome()
   }
   getHome() {
-    return (
-            <Text>Hola Mundo native base </Text>
-    );
+    return ( 
+    <Container>
+      <Header title="Lista de productos" />
+      <Content style={{display: 'flex',backgroundColor:'#ff', paddingLeft: 20, paddingRight: 20}}>
+        
+      </Content>
+    </Container>);
   }
 }
