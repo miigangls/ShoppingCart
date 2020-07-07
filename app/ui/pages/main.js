@@ -1,7 +1,10 @@
 import React from 'react';
 import {Text} from 'react-native';
-import { Container, Content } from 'native-base';
+import { Container, Content, Card } from 'native-base';
 import Header from '../components/header'
+import Footer from '../components/footer'
+import data from '../../../data.json'
+import ProductItem from '../components/product'
 
 export default class Main extends React.Component  {
   state = {loading: true }
@@ -25,9 +28,15 @@ export default class Main extends React.Component  {
   getHome() {
     return ( 
     <Container>
-      <Header title="Lista de productos" />
+      <Header title="Shopping Cart" />
       <Content style={{display: 'flex',backgroundColor:'#ff', paddingLeft: 20, paddingRight: 20}}>
-        
+        {
+          data.map(product => {
+              return (
+                <ProductItem  {...product}/>
+              )
+          })
+        }
       </Content>
     </Container>);
   }

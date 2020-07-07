@@ -1,7 +1,4 @@
 import React from 'react';
-import {Text} from 'react-native';
-
-import { Container, Content } from 'native-base';
 
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
