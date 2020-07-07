@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header, Title, Left, Right, Body} from 'native-base';
+import { Header, Title, Left, Right, Body, Icon, Button} from 'native-base';
 
 import { connect } from 'react-redux'
 
@@ -10,11 +10,18 @@ class MainFooter extends React.Component {
   render() {
     return (
       <Header style={{height: 60}} >
-        <Left/>
+        <Left >
+          <Button transparent>
+            <Icon type="FontAwesome" name="home"  />
+          </Button>
+        </Left>
         <Body >
           <Title>{this.props.title}</Title>
         </Body>
         <Right>
+          <Button transparent>
+            <Icon type="FontAwesome" name="shopping-cart"  />
+          </Button>
         </Right>
       </Header>
     );
