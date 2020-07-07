@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right, Card } from 'native-base';
 import { Image } from 'react-native';
 
 class ProductItem extends React.Component {
   render() {
-    let {ID, Name, URL, Description, likes} = this.props      
+    let {ID, Name, URL, Description, likes} = this.props
     return (
         <Card key={ID}>
         <CardItem>

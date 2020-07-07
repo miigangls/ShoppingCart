@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
 import {  Footer, FooterTab, Button, Icon, Text } from 'native-base';
+import Header from '../components/header'
 export default class FooterTabsIconTextExample extends Component {
   render() {
     return (
-        <Footer>
-          <FooterTab>
-            <Button vertical>
-              <Icon name="apps" />
-              <Text>Apps</Text>
-            </Button>
-            <Button vertical>
-              <Icon name="camera" />
-              <Text>Camera</Text>
-            </Button>
-            <Button vertical active>
-              <Icon active name="navigate" />
-              <Text>Navigate</Text>
-            </Button>
-            <Button vertical>
-              <Icon name="person" />
-              <Text>Contact</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
+      <Container>
+        <Header title="Shopping Cart" />
+        <Content style={{display: 'flex',backgroundColor:'#ff', paddingLeft: 20, paddingRight: 20}}>
+        {
+          this.props.data.map(product => {
+              return (
+                <ProductItem  {...product}/>
+              )
+          })
+        }
+        </Content>
+    </Container>
     );
   }
 }
+/*
+
+*/
