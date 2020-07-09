@@ -1,7 +1,7 @@
 const shopping = (state = {}, action) => {
     switch (action.type) {
-      case 'SHOPPING-LOADING': return action.loading
-      case 'SHOPPING-DATA': return action.data
+      case 'SHOPPING-LOADING': return {...state, loading: action.loading}
+      case 'SHOPPING-DATA': return {...state, data: action.data}
       case 'SHOPPING-REMOVE': return {}
       default: return state
     }

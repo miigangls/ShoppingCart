@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
-import { Container, Content } from 'native-base';
+import { Container, Content, Card, CardItem,  Left, Body, Right, Button, Icon} from 'native-base';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import data from '../../../data.json'
@@ -39,8 +39,30 @@ export default class Main extends React.Component  {
       <Content style={{display: 'flex',backgroundColor:'#ff', paddingLeft: 20, paddingRight: 20}}>
         {
           data.map(product => {
+            let {ID,  likes} = data
               return (
-                <ProductItem  {...product}  />
+                <Card key={ID}>
+                  <ProductItem  {...product}  />
+                  <CardItem>
+                    <Left>
+                      <Button transparent>
+                        <Icon type="FontAwesome" name="thumbs-up" />
+                        <Text style={{fontSize:12}}>{likes}</Text>
+                      </Button>
+                    </Left>
+                    <Body>
+                      <Button transparent>
+                        <Icon  type="FontAwesome" name="comments" />
+                        <Text style={{fontSize:12}} >Comments</Text>
+                      </Button>
+                    </Body>
+                    <Right style={{paddingRight:5}} >
+                        <Button transparent onPress={() => this.props.addShopping(product, this.props.carData)} >
+                            <Icon active style={{fontSize:35}} type="FontAwesome" name="shopping-cart" />
+                        </Button>
+                    </Right>
+                  </CardItem>
+                </Card>
               )
           })
         }

@@ -11,15 +11,15 @@ class MainFooter extends React.Component {
     return (
       <Header style={{height: 60}} >
         <Left >
-          <Button transparent>
-            <Icon type="FontAwesome" name="home"  />
+          <Button transparent onPress={() => this.props.onRouter('MAIN')}>
+            <Icon type="FontAwesome" name="home"   />
           </Button>
         </Left>
         <Body >
           <Title>{this.props.title}</Title>
         </Body>
         <Right>
-          <Button transparent>
+          <Button transparent onPress={() => this.props.onRouter('SHOPPING')}>
             <Icon type="FontAwesome" name="shopping-cart"  />
           </Button>
         </Right>

@@ -1,15 +1,18 @@
 import Main from '../pages/main'
 import { connect } from 'react-redux'
-import {} from '../../actions/shopping'
-import {addShopping} from '../../actions/main'
-
+import { addShopping} from '../../actions/shopping'
 const mapStateToProps = (state) => {
-  return {}
+  let {data} = state.shopping
+  , {name} = state.router 
+  return {
+    carData: data, 
+    router : name
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addShopping: (product, data) => dispatch(addShopping(product, data)),
+    addShopping:(value, data) => dispatch(addShopping(value, data)),
   }
 }
 
